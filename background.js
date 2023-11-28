@@ -13,3 +13,14 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     console.log(sendResponse)
     sendResponse({farewell: "Goodbye"})
 })
+
+chrome.alarms.create("customAlarm", {
+    delayInMinutes: 1 / 60,
+    periodInMinutes: 1 / 60 
+})
+
+chrome.alarms.onAlarm.addListener(function(alarm) {
+    if (alarm.name == "customAlarm") {
+        console.log("Alarm fired - Do something..." + new Date().getSeconds())
+    }
+})
