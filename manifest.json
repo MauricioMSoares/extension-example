@@ -16,5 +16,25 @@
             "128": "images/icon.png"
         },
         "default_title": "Extension Example"
-    }
+    },
+    "options_page": "options.html",
+    "background": {
+        "service_worker": "background.js"
+    },
+    "permissions": [
+        "storage"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "https://*.google.com/*"
+            ],
+            "css": [
+                "contentStyle.css"
+            ],
+            "js": [
+                "contentScript.js"
+            ]
+        }
+    ]
 }
